@@ -1,63 +1,111 @@
 <!DOCTYPE html>
-<html lang="kr" dir="ltr">
+<html lang=kr dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
     <title></title>
-    <style media="screen">
-    .static{
-      border: 1px solid blue;
-      width: 100px;
+    <style>
+       body, h1{
+         margin: 0px
+       }
+       #scene{
+         height:800px;
+         background-size: cover;
+/*--밑에 태그들은 사진은 고정되어 있고 스크롤만 내려가게 하는 태그--*/
+         overflow: hidden;
+         background-attachment: fixed;
+      }
+
+      #scene h1{
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+      }
+       .one{
+         background-image: url(images/index_07.png);
+       }
+       .two{
+         background-image: url(images/index_08.png);
+       }
+       .three{
+         background-image: url(images/index_09.png);
+       }
+
+       /*---푸터스타일지점----*/
+    footer{
       height: 100px;
-      position: static;
+      background-color: rgba(0, 0, 0, 1);
     }
-    .relative{
-      border: 1px solid red;
-      width: 100px;
-      height:100px;
+    .footer{
       position: relative;
-      left: 50px;
-      top: 50px;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      text-align: center;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 100;
+      color: gray;
     }
-    .absolute{
-      border: 1px solid green;
-      width: 500px;
-      height:500px;
-      position: absolute;
-      left: 100px;
-      top: 100px;
-    }
-    .fixed{
-      border: 1px solid yellow;
-      width: 100px;
-      height:100px;
+    /*---네비부분적용---*/
+    .wrap{
+      height: 100px;
+      width: 100%;
       position: fixed;
-      right: 0px;
-      top: 0px;
+      background-color: rgba(0, 0, 0, 1);
+/*---밑에 태그는 최상위로 있는 태그---*/
+      z-index: 10;
+    }
+    .logo{
+      display: inline-block;
+      margin-left: 240px;
+    }
+    .nav{
+      background-color: rgba(0, 0, 0, 1);
+      display: inline-block;
+      position: fixed;
+      right: 240px;
+      top: 35px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .space{margin-left: 2rem;}
+
+    /*---메뉴컬러 및 롤오버 처리===*/
+    a, a:link :visited :active{
+      text-decoration: none;
+      color: white;
+    }
+    a:hover{
+      color: #da0812;
     }
     </style>
-    </head>
+  </head>
   <body>
-    <h1>포지션 관련 트레이닝</h1>
-    <div class="static">static포지션입니다.</div>
-    <div class="static">static포지션입니다.</div>
-    <div class="relative">reletive포지션입니다.</div>
-    <div class="absolute">
-      absolute포지션입니다.
-<!--absolute는 일자로 그냥 붙히면 같은 위치에 붙고,
-밑으로 넣게 되면 원래위치에서 50px 밀린곳에 붙는다.
-(부모와 자식 관계가 매우 중요하다. *부모가 옮겨지면 자식도 같이 옮겨진다.)-->
-      <div class="absolute">
-        absolute포지션입니다.
-      </div>
-
-    <div class="fixed">fixed포지션입니다.</div>
+    <nav class="wrap">
+      <div class="logo">
+       <a href="index.html"><img src="images/index_02.png"></a>
+     </div>
+     <div class="nav">
+       <a href="p01.html">EF-S 35mm F2.8 Macro IS STM</a>
+       <span class="space"></span>
+       <a href="p02.html">EF-S 18-55mm F4-5.6 IS STM</a>
+       <span class="space"></span>
+       <a href="p03.html">EF 70-300mm F4-5.6 IS II USM</a>
+       <span class="space"></span>
+    </nav>
+    <section id="scene" class="one">
+      <h1><a href="p01.html"><img src="images/t01.png"></h1>
+    </section>
+    <section id="scene" class="two">
+      <h1><a href="p02.html"><img src="images/t02.png"></h1>
+    </section>
+    <section id="scene" class="three">
+      <h1><a href="p03.html"><img src="images/t03.png"></h1>
+    </section>
+    <footer><div class="footer">Copyright 2019 Canon Korea Consumer Imaging. All Right Reseved.</div></footer>
   </body>
 </html>
-
-
-<!--
-1. static (좌측정렬 태그)
-2. reletive (위에 있는 박스 밑으로 붙는 태그 *상대적인것)
-3. absolute (왼쪽 끝에서부터 내가 원하는 위치에 고정되는 태그 *절대적인것)
-4. fixed (내가 임의의 원하는 위치에 고정되는 태그)
--->
